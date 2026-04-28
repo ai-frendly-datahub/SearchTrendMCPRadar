@@ -1,6 +1,6 @@
 {
   "category": "search_trend_mcp",
-  "generated_at": "2026-04-28T00:41:23.169702+00:00",
+  "generated_at": "2026-04-27T23:45:27.682093+00:00",
   "scope_note": "search_trend_mcp treats the awesome-mcp-korea section as a T4 community directory seed. Repository metadata, API credential scope, and security context remain separate enrichment layers until archived, license, and advisory fields are collected.",
   "summary": {
     "total_sources": 3,
@@ -59,7 +59,7 @@
       "article_count": 2,
       "event_count": 2,
       "latest_event_at": "2026-04-24T12:44:35.672100+00:00",
-      "age_days": 3.5,
+      "age_days": 3.46,
       "latest_title": "py-mcp-naver-search",
       "latest_url": "https://github.com/jikime/py-mcp-naver-search",
       "latest_mcp_domain": [
