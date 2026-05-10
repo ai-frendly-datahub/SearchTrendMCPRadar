@@ -1,6 +1,6 @@
 {
   "category": "search_trend_mcp",
-  "generated_at": "2026-04-28T00:41:23.169702+00:00",
+  "generated_at": "2026-04-28T15:13:14.637341+00:00",
   "scope_note": "search_trend_mcp treats the awesome-mcp-korea section as a T4 community directory seed. Repository metadata, API credential scope, and security context remain separate enrichment layers until archived, license, and advisory fields are collected.",
   "summary": {
     "total_sources": 3,
@@ -58,15 +58,17 @@
       "status": "fresh",
       "article_count": 2,
       "event_count": 2,
-      "latest_event_at": "2026-04-24T12:44:35.672100+00:00",
-      "age_days": 3.5,
-      "latest_title": "py-mcp-naver-search",
-      "latest_url": "https://github.com/jikime/py-mcp-naver-search",
+      "latest_event_at": "2026-04-28T15:13:13.725230+00:00",
+      "age_days": 0.0,
+      "latest_title": "naver-search-mcp",
+      "latest_url": "https://github.com/isnow890/naver-search-mcp",
       "latest_mcp_domain": [
         "search",
         "naver",
         "검색",
-        "네이버"
+        "트렌드",
+        "네이버",
+        "데이터랩"
       ],
       "latest_provider": [
         "naver",
@@ -74,7 +76,8 @@
       ],
       "latest_capability": [
         "search",
-        "검색"
+        "검색",
+        "분석"
       ],
       "latest_risk_scope": [],
       "latest_required_field_proxy": {
@@ -166,40 +169,9 @@
     {
       "source": "awesome-mcp-korea Search & Trends",
       "event_model": "mcp_directory_entry",
-      "title": "py-mcp-naver-search",
-      "url": "https://github.com/jikime/py-mcp-naver-search",
-      "event_at": "2026-04-24T12:44:35.672100+00:00",
-      "mcp_domain": [
-        "search",
-        "naver",
-        "검색",
-        "네이버"
-      ],
-      "provider": [
-        "naver",
-        "네이버"
-      ],
-      "capability": [
-        "search",
-        "검색"
-      ],
-      "risk_scope": [],
-      "project_health": [
-        "mcp",
-        "서버"
-      ],
-      "required_field_proxy": {
-        "repository": true,
-        "source_section": true,
-        "source_url": true
-      }
-    },
-    {
-      "source": "awesome-mcp-korea Search & Trends",
-      "event_model": "mcp_directory_entry",
       "title": "naver-search-mcp",
       "url": "https://github.com/isnow890/naver-search-mcp",
-      "event_at": "2026-04-24T12:44:35.672036+00:00",
+      "event_at": "2026-04-28T15:13:13.725230+00:00",
       "mcp_domain": [
         "search",
         "naver",
@@ -216,6 +188,37 @@
         "search",
         "검색",
         "분석"
+      ],
+      "risk_scope": [],
+      "project_health": [
+        "mcp",
+        "서버"
+      ],
+      "required_field_proxy": {
+        "repository": true,
+        "source_section": true,
+        "source_url": true
+      }
+    },
+    {
+      "source": "awesome-mcp-korea Search & Trends",
+      "event_model": "mcp_directory_entry",
+      "title": "py-mcp-naver-search",
+      "url": "https://github.com/jikime/py-mcp-naver-search",
+      "event_at": "2026-04-24T12:44:35.672100+00:00",
+      "mcp_domain": [
+        "search",
+        "naver",
+        "검색",
+        "네이버"
+      ],
+      "provider": [
+        "naver",
+        "네이버"
+      ],
+      "capability": [
+        "search",
+        "검색"
       ],
       "risk_scope": [],
       "project_health": [

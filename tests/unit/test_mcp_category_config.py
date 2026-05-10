@@ -20,6 +20,14 @@ def _seed_source(category):
     return seeds[0]
 
 
+def _mcp_source(category, repository: str):
+    return next(
+        source
+        for source in category.sources
+        if source.type == "mcp_server" and source.config.get("repository") == repository
+    )
+
+
 def test_mcp_category_config_uses_readme_section_source() -> None:
     category = load_category_config(_category_name())
 
@@ -77,6 +85,7 @@ def test_mcp_server_sources_are_disabled_metadata_candidates() -> None:
         "blocked_command_unresolved",
         "blocked_env_required",
         "blocked_tool_allowlist_unresolved",
+        "blocked_runtime_config_unresolved",
         "candidate_ready_for_fake_transport_test",
         "fake_transport_smoke_test_passed",
     }
@@ -88,6 +97,109 @@ def test_mcp_server_sources_are_disabled_metadata_candidates() -> None:
         assert source.config["repository"]
         assert isinstance(source.config.get("tools", []), list)
         assert isinstance(source.config.get("resources", []), list)
+        assert source.config["docs_advisory_audit_status"] == "passed"
+        assert (
+            source.config["docs_advisory_audit_artifact"]
+            == "_workspace/2026-04-30_cycle69_mcp_docs_advisory_audit.json"
+        )
+        assert source.config["github_readme_present"] is True
+        assert source.config["github_docs_present"] is True
+        assert source.config["github_docs_paths"]
+        assert source.config["github_security_advisory_access_status"].startswith("checked")
+        assert source.config["github_security_advisory_count"] >= 0
+        if source.config.get("command_discovery_status"):
+            assert source.config["command_discovery_checked_at"]
+            assert (
+                source.config["command_discovery_artifact"]
+                == "_workspace/2026-04-30_cycle71_mcp_command_discovery_audit.json"
+            )
+        if "command_or_endpoint_unresolved" in source.config.get("activation_gates", []):
+            assert source.config["command_discovery_status"]
         if source.config["activation_status"] != "metadata_only":
             assert source.config["activation_audited_at"]
             assert source.config["activation_gates"]
+
+
+def test_isnow890_naver_search_candidate_has_fake_transport_evidence() -> None:
+    category = load_category_config(_category_name())
+    source = _mcp_source(category, "isnow890/naver-search-mcp")
+
+    assert source.enabled is False
+    assert source.config["activation_status"] == "blocked_env_required"
+    assert source.config["fake_transport_smoke_test_status"] == "passed"
+    assert (
+        source.config["fake_transport_smoke_test_artifact"]
+        == "_workspace/2026-05-01_cycle82_searchtrend_isnow890_fake_probe.json"
+    )
+    assert (
+        source.config["fake_transport_fixture"]
+        == "fixtures/mcp/fake_isnow890_naver_search_mcp.py"
+    )
+    assert source.config["event_model"] == "mcp_tool_result"
+    assert source.config["tools"] == ["naver-search"]
+    assert source.config["env"] == ["NAVER_CLIENT_ID", "NAVER_CLIENT_SECRET"]
+    assert "fake_transport_smoke_test_required" not in source.config["activation_gates"]
+    assert "env_secret_documentation_required" not in source.config["activation_gates"]
+    assert source.config["env_documentation_status"] == "documented_no_secret_placeholder"
+    assert (
+        source.config["env_documentation_artifact"]
+        == "_workspace/2026-05-07_mcp_env_documentation_manifest.json"
+    )
+    assert "real_transport_smoke_test_required" in source.config["activation_gates"]
+
+
+def test_py_naver_search_candidate_has_resolved_uv_command() -> None:
+    category = load_category_config(_category_name())
+    source = _mcp_source(category, "jikime/py-mcp-naver-search")
+
+    assert source.enabled is False
+    assert source.config["activation_status"] == "blocked_env_required"
+    assert source.config["command_discovery_status"] == "resolved_local_uv_file"
+    assert source.config["command"] == "uv"
+    assert source.config["args"] == [
+        "--directory",
+        "<local_checkout>/py-mcp-naver-search",
+        "run",
+        "server.py",
+    ]
+    assert source.config["event_model"] == "mcp_tool_result"
+    assert "command_or_endpoint_unresolved" not in source.config["activation_gates"]
+    assert "env_secret_documentation_required" not in source.config["activation_gates"]
+    assert source.config["env_documentation_status"] == "documented_no_secret_placeholder"
+    assert (
+        source.config["env_documentation_artifact"]
+        == "_workspace/2026-05-07_mcp_env_documentation_manifest.json"
+    )
+    assert "tool_resource_allowlist_required" not in source.config["activation_gates"]
+    assert [tool for tool in source.config["tools"]] == [
+        "check_adult_query",
+        "correct_errata",
+        "search_blog",
+        "search_book",
+        "search_cafe_article",
+        "search_doc",
+        "search_encyclopedia",
+        "search_image",
+        "search_kin",
+        "search_local",
+        "search_news",
+        "search_shop",
+        "search_webkr",
+    ]
+
+
+def test_jikime_py_naver_search_candidate_has_fake_transport_evidence() -> None:
+    category = load_category_config(_category_name())
+    source = _mcp_source(category, "jikime/py-mcp-naver-search")
+
+    assert source.config["fake_transport_smoke_test_status"] == "passed"
+    assert (
+        source.config["fake_transport_smoke_test_artifact"]
+        == "_workspace/2026-05-01_cycle82_searchtrend_jikime_py_mcp_naver_search_fake_probe.json"
+    )
+    assert (
+        source.config["fake_transport_fixture"]
+        == "fixtures/mcp/fake_jikime_py_mcp_naver_search_mcp.py"
+    )
+    assert "fake_transport_smoke_test_required" not in source.config["activation_gates"]
+    assert "real_transport_smoke_test_required" in source.config["activation_gates"]
