@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-13",
+  "date": "2026-05-12",
   "category": "search_trend_mcp",
   "article_count": 2,
   "source_count": 1,
@@ -7,11 +7,7 @@
   "top_entities": [
     {
       "name": "MCPDomain",
-      "count": 14
-    },
-    {
-      "name": "ProjectHealth",
-      "count": 6
+      "count": 10
     },
     {
       "name": "Capability",
@@ -22,12 +18,12 @@
       "count": 4
     },
     {
-      "name": "RiskScope",
-      "count": 2
+      "name": "ProjectHealth",
+      "count": 4
     }
   ],
   "sources": {
     "awesome-mcp-korea Search & Trends": 2
   },
-  "generated_at": "2026-04-13T11:10:35.948367+09:00"
+  "generated_at": "2026-05-12T20:29:30.080068+00:00"
 }
