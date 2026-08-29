@@ -1,6 +1,6 @@
 {
   "category": "search_trend_mcp",
-  "generated_at": "2026-08-29T00:18:46.131685+00:00",
+  "generated_at": "2026-08-29T19:03:33.179912+00:00",
   "scope_note": "search_trend_mcp treats the awesome-mcp-korea section as a T4 community directory seed. Repository metadata, API credential scope, and security context remain separate enrichment layers until archived, license, and advisory fields are collected.",
   "summary": {
     "total_sources": 3,
@@ -101,7 +101,7 @@
       "status": "fresh",
       "article_count": 2,
       "event_count": 2,
-      "latest_event_at": "2026-08-29T00:18:45.543951+00:00",
+      "latest_event_at": "2026-08-29T19:03:32.636648+00:00",
       "age_days": 0.0,
       "latest_title": "py-mcp-naver-search",
       "latest_url": "https://github.com/jikime/py-mcp-naver-search",
@@ -163,7 +163,7 @@
         "status": "stale",
         "repository": "isnow890/naver-search-mcp",
         "checked_at": "2026-05-07T05:20:56+00:00",
-        "age_days": 113.79,
+        "age_days": 114.57,
         "freshness_sla_days": 7.0,
         "missing_fields": [],
         "github_pushed_at": "2026-01-12T11:20:00Z",
@@ -239,7 +239,7 @@
         "status": "stale",
         "repository": "jikime/py-mcp-naver-search",
         "checked_at": "2026-05-07T05:20:56+00:00",
-        "age_days": 113.79,
+        "age_days": 114.57,
         "freshness_sla_days": 7.0,
         "missing_fields": [],
         "github_pushed_at": "2025-05-06T07:35:52Z",
@@ -284,7 +284,7 @@
       "event_model": "mcp_directory_entry",
       "title": "py-mcp-naver-search",
       "url": "https://github.com/jikime/py-mcp-naver-search",
-      "event_at": "2026-08-29T00:18:45.543951+00:00",
+      "event_at": "2026-08-29T19:03:32.636648+00:00",
       "mcp_domain": [
         "search",
         "naver",
@@ -315,7 +315,7 @@
       "event_model": "mcp_directory_entry",
       "title": "naver-search-mcp",
       "url": "https://github.com/isnow890/naver-search-mcp",
-      "event_at": "2026-08-29T00:18:45.543933+00:00",
+      "event_at": "2026-08-29T19:03:32.636632+00:00",
       "mcp_domain": [
         "search",
         "naver",
@@ -438,7 +438,7 @@
       "source": "isnow890/naver-search-mcp",
       "repository": "isnow890/naver-search-mcp",
       "checked_at": "2026-05-07T05:20:56+00:00",
-      "age_days": 113.79,
+      "age_days": 114.57,
       "freshness_sla_days": 7.0
     },
     {
@@ -466,7 +466,7 @@
       "source": "jikime/py-mcp-naver-search",
       "repository": "jikime/py-mcp-naver-search",
       "checked_at": "2026-05-07T05:20:56+00:00",
-      "age_days": 113.79,
+      "age_days": 114.57,
       "freshness_sla_days": 7.0
     }
   ],
